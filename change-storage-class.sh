@@ -63,6 +63,7 @@ cat glacier.txt | grep "Key" > glacier.txt
 # Step 3: Restore all GLACIER files
 # Usage: ./restore.sh part-1.txt 0
 # Note: Use {Tier=Expedited} for faster restore
+#	Run in parallel for multiple files
 ##########################################
 
 fileName="$1" # File containing only S3 object key
@@ -85,6 +86,7 @@ done < $fileName
 # Note: Must wait for step 3 to finish,
 #       check if last file is restored 
 #       before running this script
+#	Run in parallel for multiple files
 ##########################################
 
 fileName="$1" # File containing only S3 object key
