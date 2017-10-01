@@ -97,7 +97,7 @@ PREFIX="foldername"
 PROFILE="awscliprofile"
 
 while read p; do
-  aws s3api copy-object --bucket $BUCKET --copy-source "$BUCKET/$p" --key "$p" --query "CopyObjectResult.{LastModified}" --profile $PROFILE
+  aws s3api copy-object --bucket $BUCKET --copy-source "$BUCKET/$p" --key "$p" --metadata-directive REPLACE --profile $PROFILE
   var=$((var+1))
   echo "#$var ... $p"
 done < $fileName
